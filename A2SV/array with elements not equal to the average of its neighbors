@@ -1,0 +1,20 @@
+class Solution(object):
+    def rearrangeArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        def arrange(giv):
+            def check(given):
+                for i in range(1,len(given)-1):
+                    if (given[i-1]+given[i+1])/2==given[i]:
+                        return False
+                return True
+            if check(giv)==True:
+                return giv
+            else:
+                for i in range(1,len(giv)-1):
+                    if (giv[i-1]+giv[i+1])/2==giv[i]:
+                        giv[i],giv[i+1]=giv[i+1],giv[i]
+                return arrange(giv)
+        return arrange(nums)
