@@ -1,0 +1,15 @@
+def reverse(self,num):
+        total=str(num) 
+        if total[0]=="-":
+            total=total[1:]
+            num=int("-"+total[::-1])
+            if -2147483648<num<2147483648:
+                return num
+            else:
+                return 0
+        else:
+            num=int(total[::-1])
+            if -2147483648<num<2147483648:
+                return num
+            else:
+                return 0
