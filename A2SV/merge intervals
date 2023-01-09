@@ -1,0 +1,21 @@
+class Solution(object):
+    def merge(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        """
+        u=sorted(intervals)
+        coll=[]
+        i=0
+        while i<len(u)-1:
+            if u[i][1] >= u[i+1][0] and u[i][1]<= u[i+1][1]:
+                u[i+1]=[u[i][0],u[i+1][1]]
+                u.remove(u[i])
+                i=0
+            elif u[i][1] > u[i+1][0] and u[i][1]> u[i+1][1]:
+                u[i+1]=[u[i][0],u[i][1]]
+                u.remove(u[i])
+                i=0
+            else:
+                i+=1
+        return u
