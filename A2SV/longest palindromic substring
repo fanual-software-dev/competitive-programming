@@ -1,0 +1,20 @@
+class Solution(object):
+    def longestPalindrome(self, string):
+        s=""
+        slen=0
+        for i in range(len(string)):
+            l=r=i
+            while l>=0 and r<len(string) and string[l]==string[r]:
+                if (r-l+1)>slen:
+                    s=string[l:r+1]
+                    slen=r-l+1
+                r+=1
+                l-=1
+            l,r=i,i+1
+            while l>=0 and r<len(string) and string[l]==string[r]:
+                if (r-l+1)>slen:
+                    s=string[l:r+1]
+                    slen=r-l+1
+                r+=1
+                l-=1
+        return s
