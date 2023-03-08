@@ -1,0 +1,23 @@
+class Solution(object):
+    def reverseParentheses(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        stack=[]
+        coll=[]
+        rever=""
+        for i in s:
+            coll.append(i)
+        for i in range(len(s)):
+            if coll[i]=="(":
+                stack.append(i)
+            elif coll[i]==")":
+                u=stack.pop()
+                coll[u+1:i]=coll[u+1:i][::-1]
+        for i in range(len(coll)):
+            if coll[i]=="(" or coll[i]==")":
+                continue
+            else:
+                rever+=coll[i]
+        return rever
