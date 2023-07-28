@@ -1,0 +1,17 @@
+class Solution(object):
+    def twoSum(self,nums, target):
+        left=0
+        right=len(nums)-1
+        coll=[]
+        for i in range(len(nums)):
+            coll.append([nums[i],i])
+        coll=sorted(coll)
+        nums=coll
+        while left<right:
+            if nums[left][0]+nums[right][0]==target:
+                return [nums[left][1],nums[right][1]]
+            elif nums[left][0]+nums[right][0]>target:
+                right-=1
+            elif nums[left][0]+nums[right][0]<target:
+                left+=1
+        return [] 
