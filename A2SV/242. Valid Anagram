@@ -1,0 +1,26 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        if len(s)!=len(t):
+            return False
+        s_={}
+        for i in s:
+            if i not in s_:
+                s_[i]=1
+            else:
+                s_[i]+=1
+        t_={}
+        for i in t:
+            if i not in t_:
+                t_[i]=1
+            else:
+                t_[i]+=1
+        for i in s_:
+            if i in t_ and s_[i]!=t_[i]:
+                return False
+            elif i not in t_:return False
+        return True
