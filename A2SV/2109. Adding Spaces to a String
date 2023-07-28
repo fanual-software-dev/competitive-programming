@@ -1,0 +1,14 @@
+class Solution(object):
+    def addSpaces(self, s, spaces):
+        """
+        :type s: str
+        :type spaces: List[int]
+        :rtype: str
+        """
+        befans=[]
+        total=0
+        for i in spaces:
+            befans.append(s[total:i])
+            total=i
+        befans.append(s[total:len(s)])
+        return " ".join(befans)
