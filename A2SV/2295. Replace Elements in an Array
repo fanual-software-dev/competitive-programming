@@ -1,0 +1,15 @@
+class Solution(object):
+    def arrayChange(self, nums, operations):
+        """
+        :type nums: List[int]
+        :type operations: List[List[int]]
+        :rtype: List[int]
+        """
+        ans={}
+        for i in range(len(nums)):
+            ans[nums[i]]=i
+        for i in operations:
+            nums[ans[i[0]]]=i[1]
+            ans[i[1]]=ans[i[0]]
+            ans.pop(i[0],None)
+        return nums
