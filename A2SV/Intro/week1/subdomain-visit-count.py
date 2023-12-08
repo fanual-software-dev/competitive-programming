@@ -11,7 +11,6 @@ class Solution:
 
             ans = other.split(".")
 
-            print(ans)
 
             for i in range(len(ans)):
 
