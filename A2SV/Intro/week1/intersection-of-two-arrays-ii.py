@@ -3,20 +3,20 @@ class Solution:
         
         ans = []
 
-        dict1 = {}
-        dict2 = {}
+        dict1 = [0]*(max(max(nums1),max(nums2))+1)
+        dict2 = [0]*(max(max(nums1),max(nums2))+1)
 
         for i in nums1:
 
-            dict1[i] = 1 + dict1.get(i,0)
+            dict1[i] += 1
 
         for i in nums2:
 
-            dict2[i] = 1 + dict2.get(i,0)
+            dict2[i] += 1
         
         for i in nums1:
 
-            if i in nums2 and i not in ans:
+            if dict1[i]>0 and dict2[i]>0 and i not in ans:
 
                 for j in range(min(dict1[i],dict2[i])):
                     ans.append(i)
