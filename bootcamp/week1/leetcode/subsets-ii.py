@@ -6,10 +6,11 @@ class Solution:
         def backtrack(nums,k,path = []):
             if len(path)==k:
                 ans.add(tuple(path[:]))
+                return
             for i in range(len(nums)):
                 path.append(nums[i])
-                backtrack(nums[i+1:],k)
-            if path:path.pop()
+                backtrack(nums[i+1:],k,path)
+                path.pop()
         for i in range(1,len(nums)+1):
             backtrack(nums,i)
         return ans
